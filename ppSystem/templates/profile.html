@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- include the style -->
+<link rel="stylesheet" href= '{% static "/css/alertify.min.css" %}' />
+<!-- include a theme -->
+<link rel="stylesheet" href='{% static "/css/themes/default.min.css" %}' />
+    <link rel="stylesheet" href='{% static "css/index.css" %}'>
+    <title>Profile</title>
+</head>
+
+<body>
+    <div class="candidate_profile">
+        <div class="header">
+            <img src='{% static "img/logo.jpg" %}' alt="logo" class="header_logo"  >
+            <p class="welcome" name="welcome">Welcome:</p>
+            <p class="candidate_id" name="candidate_id">{{name}}</p>
+            <a href="{% url 'logout' %}" class="logout">Logout</a>
+
+        </div>
+        <div class="candidate_form" name="candidate_form">
+            <form action="" method="POST" class="form_candidate" name="form_candidate" enctype="multipart/form-data">
+                {% csrf_token %}   
+                <label for="please" class="please">Please fill out the form.</label>
+                    
+                    {% if form.non_field_errors %}
+                         {% for error in form.non_field_errors %} 
+                            <p class="err">{{error}}</p>
+                         {% endfor %}
+                    {% endif %}
+                    {% for pr in form %}
+                     {{pr.label_tags}} {{pr}} {{pr.errors|striptags}} <br>
+                    {% endfor %}
+                    
+                    <label for="candidate" class="candidate_age" name="candidate_age">What is your age?</label>
+                    
+                    <label for="candidate" class="candidate_phone" name="candidate_phone">What is your phone number?</label>
+                    
+                    <p class="male">Male</p>
+                    <p class="female">Female</p>
+                    <p class="others">Others</p>
+                    <label for="cv" class="cv">Please upload your CV</label>
+                    <div id="tooltip">
+                        <label for="candidate" class="oppeness" name="oppeness">Do You Enjoy new experience or
+                            thing? (Oppenness):</label>
+                            <pre id="oppentext">
+                            People who like to learn new things 
+                            and enjoy new experiences usually score high in openness.
+                            Openness includes traits like being insightful and
+                            imaginative and having a wide variety of interests.</pre>
+                        
+                    </div>
+                    
+                    <label for="candidate" class="neuroticism" name="neuroticism">How often you feel
+                        negativity?(Neuroticism):</label>
+                    
+                    <label for="candidate" class="conscientiousness" name="conscientiousness">Are You Willing to do one’s
+                        work well and thoroughly?(Conscientiousness):</label>
+                    
+                    <label for="candidate" class="agreeableness" name="agreeableness">How much would you like to work with
+                        your team?(Agreableness):</label>
+                    
+                    <label for="candidate" class="extraversion" name="extraversion">How outgoing and social interaction do
+                        you like?(Extraversion):</label>
+                                
+
+                <input type="submit" class="cand_submit" name="Submit">
+            </form>
+            {% if messages %} 
+             {% for message in messages %} 
+             <small {% if message.tags %} class="{{message.tags}}" {% endif %}>{{message}}</small>
+             {% endfor %}
+           {% endif %}
+        </div>
+    </div>
+    <script src='{% static "js/alertify.min.js" %}'></script>
+</body>
+
+</html>

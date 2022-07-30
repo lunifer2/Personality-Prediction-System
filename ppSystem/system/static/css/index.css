@@ -1,0 +1,1283 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 36px;
+    color:white;
+    /* display:inline-block; */
+}
+#tooltip{
+    position: absolute;
+    height: 36px;
+    left: 5%;
+    top: 350px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 36px;
+    display: flex;
+    cursor: pointer;
+
+}
+#tooltip:hover #oppentext{ 
+    top: -130%;
+    visibility: visible;
+    opacity:1;
+}
+#oppentext{
+    color: #000000;
+    position: relative;
+    left: -5%;
+    top: 0;
+    transform: translateX(-50%);
+    background-color: #FA931B;
+    padding: 10px 15px;
+    border-radius:7px ;
+    visibility: hidden;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+.err{
+    margin-top: 10%;
+    padding-left: 5%;
+}
+#oppentext::before{
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    border: 15px solid;
+    border-color: #000 #0000 #0000 #0000;
+}
+.ajs-message.ajs-custom { 
+    color: #31708f;  
+    background-color: #FB9410; 
+    border-color: #31708f; }
+
+.result_name {
+    position: absolute;
+   
+    left: 5%;
+    top: 215px;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+    /* identical to box height */
+
+
+
+    color: #6888B0;
+
+}
+
+.result_age {
+    position: absolute;
+    width: 73px;
+    height: 48px;
+    left: 5%;
+    top: 290px;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+    /* identical to box height */
+
+
+
+    color: #6888B0;
+
+}
+
+.result_email {
+    position: absolute;
+    width: 99px;
+    height: 48px;
+    left: 5%;
+    top: 365px;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+    /* identical to box height */
+
+
+
+    color: #6888B0;
+
+}
+
+.result_skill {
+    position: absolute;
+    width: 74px;
+    height: 48px;
+    left: 5%;
+    top: 440px;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+    /* identical to box height */
+
+
+
+    color: #6888B0;
+
+}
+
+.result_id {
+    position: absolute;
+    width: 41px;
+    height: 48px;
+    left: 80%;
+    top: 215px;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+    /* identical to box height */
+
+
+
+    color: #6888B0;
+
+}
+
+.result_gender {
+    position: absolute;
+    width: 129px;
+    height: 48px;
+    left: 80%;
+    top: 290px;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+    /* identical to box height */
+
+
+
+    color: #6888B0;
+
+}
+
+.result_phone {
+    position: absolute;
+    width: 111px;
+    height: 48px;
+    left: 80%;
+    top: 365px;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+    /* identical to box height */
+
+
+
+    color: #6888B0;
+}
+
+.result_degree {
+    position: absolute;
+    width: 126px;
+    height: 48px;
+    left: 80%;
+    top: 440px;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+    /* identical to box height */
+
+
+
+    color: #6888B0;
+}
+
+.result_oppeness {
+    position: absolute;
+    width: 173px;
+    height: 48px;
+    left: 5%;
+    top: 515px;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+    /* identical to box height */
+
+
+
+    color: #6888B0;
+
+}
+
+.result_conscientiousness {
+    position: absolute;
+    width: 318px;
+    height: 48px;
+    left: 5%;
+    top: 590px;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+    /* identical to box height */
+
+
+
+    color: #6888B0;
+}
+
+.result_extraversion {
+    position: absolute;
+    width: 210px;
+    height: 48px;
+    left: 5%;
+    top: 665px;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+    /* identical to box height */
+
+
+
+    color: #6888B0;
+}
+
+.result_agreeableness {
+    position: absolute;
+    width: 254px;
+    height: 48px;
+    left: 5%;
+    top: 740px;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+    /* identical to box height */
+
+
+
+    color: #6888B0;
+
+}
+
+.result_neuroticism {
+    position: absolute;
+    width: 207px;
+    height: 48px;
+    left: 5%;
+    top: 815px;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+    /* identical to box height */
+
+
+
+    color: #6888B0;
+}
+
+.result_prediction {
+    position: absolute;
+    left: 30%;
+    top: 890px;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+    /* identical to box height */
+
+
+
+    color: #6888B0;
+
+}
+
+.result_thanks {
+    position: absolute;
+    left: 30%;
+    top: 965px;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+    /* identical to box height */
+
+
+
+    color: #6888B0;
+
+}
+
+.result {
+    position: absolute;
+    width: 118px;
+    left: 50%;
+    top: 18%;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+    /* identical to box height */
+
+    /*  */
+
+    color: #6888B0;
+
+}
+
+.stud_oppeness {
+    position: absolute;
+    width: 61%;
+    left: 5%;
+    top: 400px;
+    box-shadow: 4px 5px 10px rgba(24, 24, 24, 0.31);
+    border-radius: 20px;
+}
+
+.stud_submit {
+
+    position: absolute;
+    width: 196px;
+    left: 29%;
+    
+
+    background: #FB9410;
+    box-shadow: 4px 5px 10px rgba(24, 24, 24, 0.31);
+    border-radius: 20px;
+}
+
+.stud_neuroticism {
+    position: absolute;
+    width: 61%;
+    left: 5%;
+    top: 500px;
+    box-shadow: 4px 5px 10px rgba(24, 24, 24, 0.31);
+}
+
+.stud_conscientiousness {
+    position: absolute;
+    width: 61%;
+    left: 5%;
+    top: 635px;
+    box-shadow: 4px 5px 10px rgba(24, 24, 24, 0.31);
+
+}
+
+.stud_agreeableness {
+    position: absolute;
+    width: 61%;
+    left: 5%;
+    top: 770px;
+    box-shadow: 4px 5px 10px rgba(24, 24, 24, 0.31);
+
+}
+
+.stud_extraversion {
+    position: absolute;
+    width: 61%;
+    left: 5%;
+    top: 900px;
+    box-shadow: 4px 5px 10px rgba(24, 24, 24, 0.31);
+
+}
+
+.other_stud {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    left: 535px;
+    top: 308px;
+
+}
+
+.female_stud {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    left: 374px;
+    top: 308px;
+}
+
+.male_stud {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    left: 186px;
+    top: 308px;
+
+    /* identical to box height */
+
+
+    color: #000000;
+}
+
+.stud_phone {
+    position: absolute;
+    width: 365px;
+    left: 45%;
+    top: 250px;
+box-shadow: 4px 5px 10px rgba(24, 24, 24, 0.31);
+border-radius: 20px;
+}
+
+.stud_age {
+    position: absolute;
+    width: 365px;
+
+    left: 5%;
+    top: 250px;
+box-shadow: 4px 5px 10px rgba(24, 24, 24, 0.31);
+border-radius: 20px;
+}
+
+.result_logo {
+    position: absolute;
+    width: 43.40277777777778%;
+    height: 61.5234375%;
+    left: 45%;
+    top: 45.703125%;
+
+    /* background: url(logo.jpg); */
+    mix-blend-mode: darken;
+}
+
+.student_phone {
+    position: absolute;
+    width: 357px;
+    height: 36px;
+    left: 45%;
+    top: 200px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 36px;
+    /* identical to box height */
+
+
+    color: #000000;
+
+}
+
+.student_age {
+    position: absolute;
+    width: 218px;
+    height: 36px;
+    left: 5%;
+    top: 200px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 36px;
+    /* identical to box height */
+
+
+    color: #000000;
+
+}
+
+.cand_oppeness {
+    position: absolute;
+    width: 61%;
+    left: 5%;
+    top: 400px;
+    box-shadow: 4px 5px 10px rgba(24, 24, 24, 0.31);
+    border-radius: 20px;
+}
+
+.cand_submit {
+
+    position: absolute;
+    width: 196px;
+    left: 29%;
+    top: 962px;
+
+    background: #FB9410;
+    box-shadow: 4px 5px 10px rgba(24, 24, 24, 0.31);
+    border-radius: 20px;
+}
+
+.cand_neuroticism {
+    position: absolute;
+    width: 61%;
+    left: 5%;
+    top: 500px;
+    box-shadow: 4px 5px 10px rgba(24, 24, 24, 0.31);
+    border-radius: 20px;
+}
+
+.cand_conscientiousness {
+    position: absolute;
+    width: 61%;
+    left: 5%;
+    top: 635px;
+    border-radius: 20px;
+    box-shadow: 4px 5px 10px rgba(24, 24, 24, 0.31);
+
+}
+
+.cand_agreeableness {
+    position: absolute;
+    width: 61%;
+    left: 5%;
+    top: 770px;
+    box-shadow: 4px 5px 10px rgba(24, 24, 24, 0.31);
+    border-radius: 20px;
+
+}
+
+.cand_extraversion {
+    position: absolute;
+    width: 61%;
+    left: 5%;
+    top: 900px;
+    box-shadow: 4px 5px 10px rgba(24, 24, 24, 0.31);
+    border-radius: 20px;
+
+}
+
+.oppeness {
+    /* position: absolute; */
+    height: 36px;
+    left: 5%;
+    top: 350px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 36px;
+    display: flex;
+    cursor: pointer;
+    /* identical to box height */
+
+
+    color: #000000;
+
+}
+
+.conscientiousness {
+    position: absolute;
+    width: 669px;
+    height: 72px;
+    left: 5%;
+    top: 550px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 36px;
+
+    color: #000000;
+}
+
+.agreeableness {
+    position: absolute;
+    width: 692px;
+    height: 72px;
+    left: 5%;
+    top: 685px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 36px;
+
+    color: #000000;
+
+}
+
+.extraversion {
+    position: absolute;
+    width: 674px;
+    height: 72px;
+    left: 5%;
+    top: 815px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 36px;
+
+    color: #000000;
+
+}
+
+.neuroticism {
+    position: absolute;
+    width: 538px;
+    height: 36px;
+    left: 5%;
+    top: 450px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 36px;
+    /* identical to box height */
+
+
+    color: #000000;
+
+}
+
+.upload_cv {
+    position: absolute;
+    padding-left: 15px;
+    width: 365px;
+    left: 45%;
+    top: 350px;
+    box-shadow: 4px 5px 10px rgba(24, 24, 24, 0.31);
+}
+
+.cv {
+    position: absolute;
+    width: 344px;
+    height: 36px;
+    left: 45%;
+    top: 300px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 36px;
+    /* identical to box height */
+
+
+    color: #000000;
+
+}
+#id_gender {
+    color: #e5e5e5;
+}
+#id_gender_2 {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    left: 535px;
+    top: 308px;
+
+}
+
+#id_gender_1 {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    left: 374px;
+    top: 308px;
+}
+
+.others {
+    position: absolute;
+    width: 81px;
+    height: 36px;
+    left: 427px;
+    top: 300px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 36px;
+    /* identical to box height */
+
+
+    color: #000000;
+
+}
+
+.female {
+    position: absolute;
+    width: 90px;
+    height: 36px;
+    left: 257px;
+    top: 300px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 36px;
+    /* identical to box height */
+
+
+    color: #000000;
+
+}
+
+.male {
+    position: absolute;
+    width: 59px;
+    height: 36px;
+    left: 5%;
+    top: 300px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 36px;
+    /* identical to box height */
+
+
+    color: #000000;
+
+}
+
+#id_gender_0 {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    left: 186px;
+    top: 308px;
+
+    /* identical to box height */
+
+
+    color: #000000;
+}
+
+.cand_phone {
+    position: absolute;
+    width: 365px;
+    left: 45%;
+    top: 250px;
+box-shadow: 4px 5px 10px rgba(24, 24, 24, 0.31);
+border-radius: 20px;
+}
+
+.cand_age {
+    position: absolute;
+    width: 365px;
+
+    left: 5%;
+    top: 250px;
+box-shadow: 4px 5px 10px rgba(24, 24, 24, 0.31);
+border-radius: 20px;
+}
+
+.candidate_phone {
+    position: absolute;
+    width: 357px;
+    height: 36px;
+    left: 45%;
+    top: 200px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 36px;
+    /* identical to box height */
+
+
+    color: #000000;
+
+}
+
+.candidate_age {
+    position: absolute;
+    width: 218px;
+    height: 36px;
+    left: 5%;
+    top: 200px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 36px;
+    /* identical to box height */
+
+
+    color: #000000;
+
+}
+
+.login_head {
+    position: absolute;
+    width: 8.26%;
+    height: 5.86%;
+    left: 98px;
+    top: 178px;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 60px;
+    /* identical to box height */
+}
+
+h2 {
+    position: absolute;
+    width: 323px;
+    height: 24px;
+    left: 98px;
+    top: 246px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.label_email {
+    position: absolute;
+    width: 71px;
+    height: 36px;
+    left: 98px;
+    top: 301px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    /* identical to box height */
+}
+
+.candidate_profile {
+    height: 1024px;
+    width: 100%;
+    background-color: #E5E5E5;
+}
+
+.student_profile {
+    height: 1024px;
+    width: 100%;
+    background-color: #E5E5E5;
+}
+
+p.candidate_id {
+    position: absolute;
+    width: 74px;
+    height: 36px;
+    left: 80%;
+    top: 58px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+}
+
+p.student_id {
+    position: absolute;
+    width: 74px;
+    height: 36px;
+    left: 80%;
+    top: 58px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+}
+
+p.welcome {
+    position: absolute;
+    width: 174px;
+    height: 36px;
+    left: 80%;
+    top: 22px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+}
+
+.header_logo {
+    position: absolute;
+    width: 97px;
+    height: 115px;
+    left: 100px;
+    top: 18px;
+
+}
+
+::placeholder {
+    padding-left: 15px;
+}
+
+input[type=text] {
+    border-radius: 20px;
+    color: #000000 !important;
+    padding-left: 15px;
+}
+input[type=number] {
+    border-radius: 20px;
+    color: #000000 !important;
+    padding-left: 15px;
+}
+
+input[type=password] {
+    border-radius: 20px;
+    color: #000000;
+    padding-left: 15px;
+}
+
+input[type=email] {
+    border-radius: 20px;
+    color: #000000;
+    padding-left: 15px;
+}
+
+.please {
+    position: absolute;
+    width: 28.541666666666664%;
+    height: 5.2734375%;
+    left: 5%;
+    /* top: 18%; */
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 54px;
+    /* identical to box height */
+
+
+    color: #000000;
+
+}
+
+.logout {
+    position: absolute;
+    width: 131px;
+    height: 39px;
+    left: 80%;
+    top: 94px;
+
+    background: #FA931B;
+}
+
+.header {
+    float: top;
+    width: 100%;
+    height: 152px;
+    left: 0px;
+    top: 0px;
+
+    background: #0A3F80;
+}
+
+.password {
+    position: absolute;
+    width: 421px;
+    height: 56px;
+    left: 98px;
+    top: 495px;
+
+    background: #FBF7F7;
+    box-shadow: 2px 4px 4px 5px rgba(0, 0, 0, 0.25);
+}
+
+.email {
+    position: absolute;
+    width: 421px;
+    height: 59px;
+    left: 98px;
+    top: 353px;
+
+    background: #FBF7F7;
+    box-shadow: 2px 4px 4px 5px rgba(0, 0, 0, 0.25);
+}
+
+.signin_but {
+    position: absolute;
+    width: 216px;
+    height: 61px;
+    left: 98px;
+    top: 599px;
+
+    background: #FB9410;
+    box-shadow: 2px 4px 4px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+}
+
+.label_signup {
+    position: absolute;
+    width: 87px;
+    height: 38px;
+    left: 462px;
+    top: 732px;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 38px;
+    /* identical to box height */
+
+
+    color: #E5E5E5;
+}
+
+.label_register {
+    position: absolute;
+    width: 302px;
+    height: 38px;
+    left: 152px;
+    top: 732px;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 38px;
+    /* identical to box height */
+
+
+    color: #E5E5E5;
+
+}
+
+.forget_password {
+    position: absolute;
+    
+    height: 36px;
+    left: 396px;
+    top: 620px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    /* identical to box height */
+
+
+    color: #FBF7F7;
+}
+
+.label_password {
+    position: absolute;
+    width: 116px;
+    height: 36px;
+    left: 98px;
+    top: 443px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    /* identical to box height */
+
+
+    color: #FFFFFF;
+}
+
+.logo {
+    position: absolute;
+    width: 40.14%;
+    height: 40%;
+    left: 40.125%;
+    top: 30.08%;
+
+
+}
+.success{
+    top: 12px;
+}
+
+.login_body {
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+
+    background: #FEFEFE;
+}
+
+.login_left {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    left: 0px;
+    top: -13px;
+    
+    background: #0A3F80;
+}
+
+.login_right {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    left: 50%;
+    top: -13px;
+
+    background: #FFFFFF
+}
+
+.register_left {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    left: 0px;
+    top: -13px;
+
+    background: #CADDF4;
+}
+
+.register_right {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    left: 50%;
+    top: -13px;
+
+    background: #fafafa;
+}
+
+.register_mid {
+    position: absolute;
+    width: 81.94%;
+    height: 86.43%;
+    left: 9.03%;
+    top: 71px;
+
+    background: #0A3F80;
+    border-radius: 40px;
+}
+
+.register_fname {
+    position: absolute;
+    width: 9.58%;
+    height: 3.52%;
+    left: 22.78%;
+    top: 24.71%;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    /* identical to box height */
+
+}
+
+.register_lname {
+    position: absolute;
+    width: 9.44%;
+    height: 3.52%;
+    left: 51.39%;
+    top: 24.71%;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    /* identical to box height */
+}
+
+.register_lemail {
+    position: absolute;
+    width: 74px;
+    height: 36px;
+    left: 22.78%;
+    top: 38.67%;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+
+}
+
+.register_lpw {
+    position: absolute;
+    width: 125px;
+    height: 36px;
+    left: 22.78%;
+    top: 52.64%;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    /* identical to box height */
+}
+
+.register_lrpw {
+    position: absolute;
+    width: 15.416666666666668%;
+    height: 36px;
+    left: 51.39%;
+    top: 52.64%;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    /* identical to box height */
+}
+
+.student {
+    position: absolute;
+    width: 97px;
+    height: 36px;
+    left: 25.35%;
+    top: 68.65%;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    /* identical to box height */
+}
+
+.student_r {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 22.85%;
+    top: 68.65%;
+
+    background: #FBF7F7;
+}
+
+.candidate_r {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 38.61%;
+    top: 68.65%;
+
+    background: #FBF7F7;
+}
+
+.candidate {
+    position: absolute;
+    width: 131px;
+    height: 36px;
+    left: 41.46%;
+    top: 68.65%;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    /* identical to box height */
+}
+
+.register {
+    position: absolute;
+    width: 269px;
+    height: 58px;
+    left: 22.85%;
+    top: 75.78%;
+    background: #FA931B;
+    box-shadow: 2px 4px 4px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+.register_head {
+    position: absolute;
+    text-align: center;
+    width: auto;
+    height: 60px;
+    left: 34.51%;
+    top: 12.21%;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 60px;
+    /* identical to box height */
+
+
+}
+
+.first_name {
+    position: absolute;
+    width: 370px;
+    height: 54px;
+    left: 22.78%;
+    top: 29.49%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.last_name {
+    position: absolute;
+    width: 370px;
+    height: 54px;
+    left: 51.89%;
+    top: 29.49%;
+    box-shadow: 2px 4px 4px 5px rgba(0, 0, 0, 0.25);
+}
+.register_username{
+    position: absolute;
+    width: 370px;;
+    height: 54px;
+    left: 51.89%;
+    top: 43.46%;
+    box-shadow: 2px 4px 4px 5px rgba(0, 0, 0, 0.25);
+}
+.register_lusername{
+    position: absolute;
+    width: 9.44%;
+    height: 54px;
+    left: 51.39%;
+    top: 38.67%;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+}
+.register_email {
+    position: absolute;
+    width: 370px;
+    height: 54px;
+    left: 22.78%;
+    top: 43.46%;
+    box-shadow: 2px 4px 4px 5px rgba(0, 0, 0, 0.25);
+}
+
+.register_pw {
+    position: absolute;
+    width: 370px;
+    height: 54px;
+    left: 22.85%;
+    top: 57.42%;
+    box-shadow: 2px 4px 4px 5px rgba(0, 0, 0, 0.25);
+}
+
+.rewrite_pw {
+    position: absolute;
+    width: 370px;
+    height: 54px;
+    left: 51.53%;
+    top: 57.42%;
+    box-shadow: 2px 4px 4px 5px rgba(0, 0, 0, 0.25);
+}
+
+input[type=submit] {
+    color: #FEFEFE;
+}

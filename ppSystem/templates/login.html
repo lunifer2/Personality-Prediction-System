@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href='{% static "css/index.css" %}'>
+	<!-- include the style -->
+<link rel="stylesheet" href= '{% static "/css/alertify.min.css" %}' />
+<!-- include a theme -->
+<link rel="stylesheet" href='{% static "/css/themes/default.min.css" %}' />
+<!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/> -->
+<!-- Default theme -->
+<!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/> -->
+
+    <title>Login</title>
+</head>
+<body>
+	<div class="main" name="main">
+		<div class="login_left" name="login_left">
+			<div class="head" name="head" align="center">
+				<h2 class="login_head">Login</h2>
+				<h2>Welcome Back!Please enter your details.</h2>
+			</div>
+			<div class="login_form" name="login_form">
+				<form class="form_login" name="form_login" method="POST">
+					{% csrf_token %}
+                    {% if form.non_field_errors %}
+                     {% for error in form.non_field_errors %} 
+                        <p class="err">{{error}}</p>
+                     {% endfor %}
+                    {% endif %}
+					<label class="label_email" name="username">Username:</label><br>
+					{{form.username}} <br>
+					<label class="label_password" name="password">Password:</label><br>
+					{{form.password}} <br>
+					<!-- <a href="forget.html" class="forget_password">Forget password?</a><br> -->
+					<input type="submit" name="submit" value="Sign in" class="signin_but"><br>
+					<label class="label_register" name="register">Don't have an account?</label><a href="{% url 'register' %}"
+						class="label_signup">Signup</a><br>
+				</form>
+				
+			</div>
+		</div>
+		<div class="login_right" name="login_right">
+			<img src='{% static "img/logo.jpg" %}' class="logo" name="logo">
+		</div>
+	</div>
+	<!-- include the script -->
+<script src='{% static "js/alertify.min.js" %}'></script>
+<!-- <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script> -->
+	<script>
+	//  {% if messages %} 
+	// 	  {% for message in messages %} 
+			   // <small {% if message.tags %} class="{{message.tags}}" {% endif %}>{{message}}</small>
+			   alertify.set('notifier','position', 'top-center');
+			   alertify.notify('{{message}}', 'custom', 2, function(){console.log('dismissed');});
+	// 	  {% endfor %}
+	//    {% endif %}
+	</script>
+</body>
+</html>

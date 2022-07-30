@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{% load static %} 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- include the style -->
+<link rel="stylesheet" href= '{% static "/css/alertify.min.css" %}' />
+<!-- include a theme -->
+<link rel="stylesheet" href='{% static "/css/themes/default.min.css" %}' />
+    <link rel="stylesheet" href='{% static "css/index.css" %}'>
+    <title>Registration</title>
+</head>
+<!-- <body>
+    <form action="" method="post">
+        {% csrf_token %}
+        {% for rg in form %}
+         {{rg}} {{rg.errors|striptags}} <br>
+        {% endfor %}
+        
+
+        <input type="submit" value="submit">
+    </form>
+    {% if messages %} 
+        {% for message in messages %} 
+        <small {% if message.tags %} class="{{message.tags}}" {% endif %}>{{message}}</small>
+        {% endfor %}
+    {% endif %}
+</body> -->
+<body>
+    <div class="register_body" name="register_body">
+        <div class="register_left" name="register_left">
+        </div>
+        <div class="register_right" name="register_right"></div>
+        <div class="register_mid" name="register_mid">
+            <h2 class="register_head">Register your account</h2>
+            <form action="" method="POST" class="register_form" name="register_form">
+                {% csrf_token %}
+                {% if form.non_field_errors %}
+                     {% for error in form.non_field_errors %} 
+                        <p class="err">{{error}}</p>
+                     {% endfor %}
+                {% endif %}
+                {% for rg in form %}
+                <!-- <script src='{% static "js/alertify.min.js" %}'></script>
+                        <script>
+                            alertify.set('notifier','position', 'top-right');
+			                alertify.error('{{rg.errors|striptags}}','custom', 2, function(){console.log('dismissed');});
+                        </script> -->
+                   {{rg}} 
+                   {{rg.errors|striptags}}  <br>
+                {% endfor %}
+                <Label class="register_fname">First name:</Label><br>
+                
+                <label class="register_lname">Last name:</label>
+                
+                <label class="register_lemail">Email:</label><br>
+            
+                <label class="register_lusername">Username:</label><br>
+                
+                <label class="register_lpw">Password:</label><br>
+                
+                <label class="register_lrpw">Rewrite Password:</label><br>
+                
+                <!-- <input type="radio" name="role" class="student_r" id="1" value="student">
+                <p class="student"> Student</p>
+                
+                <input type="radio" name="role" class="candidate_r" id="0" value="candidate">
+                <p class="candidate">Candidate</p><br> -->
+                <input type="submit" class="register" name="register" >
+            </form>
+            {% if messages %} 
+             {% for message in messages %} 
+             <small {% if message.tags %} class="{{message.tags}}" {% endif %}>{{message}}</small>
+             {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+    <script src='{% static "js/alertify.min.js" %}'></script>
+
+
+
+
+
+</body>
+</html>

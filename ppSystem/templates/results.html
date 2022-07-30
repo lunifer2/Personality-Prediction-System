@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- include the style -->
+<link rel="stylesheet" href= '{% static "/css/alertify.min.css" %}' />
+<!-- include a theme -->
+<link rel="stylesheet" href='{% static "/css/themes/default.min.css" %}' />
+    <link rel="stylesheet" href='{% static "css/index.css" %}'>
+    <title>Your Results</title>
+</head>
+
+<body>
+    <div class="candidate_profile">
+        <div class="header">
+            <img src='{% static "img/logo.jpg" %}' alt="logo" class="header_logo"  >
+            <p class="welcome" name="welcome">Welcome:</p>
+            <p class="candidate_id" name="candidate_id">{{name}}</p>
+            <a href="{% url 'logout' %}" class="logout">Logout</a>
+
+        </div>
+        <div class="candidate_results">
+            <div class="result_logo">
+                <img src='{% static "img/logo.jpg" %}' alt="logo">
+            </div>
+            <div class="result">
+                Results
+            </div>
+            {% if resu %} 
+                <div class="result_name" name="result_name">
+                   Name:{{fname}} {{lname}}
+                </div>
+                <div class="result_age" name="result_age">
+                    Age:{{resu.age}}
+                </div>
+                <div class="result_email" name="result_email">
+                    Email:{{email}}
+                </div>
+                <div class="result_skill" name="result_skill">
+                    Skill:
+                </div>
+                <div class="result_id" name="result_id">
+                    ID:{{resu.user_id}}
+                </div>
+                <div class="result_gender" name="result_gender">
+                    Gender:{{resu.gender}}
+                </div>
+                <div class="result_phone" name="result_phone">
+                    Phone:{{resu.phone}}
+                </div>
+                <div class="result_degree" name="result_degree">
+                    Degree:
+                </div>
+                <div class="result_oppeness" name="result_oppeness">
+                    Oppenness:{{resu.oppeness}}
+                </div>
+                <div class="result_conscientiousness" name="result_consceintiousness">
+                    Conscientiousness:{{resu.conscientiousness}}
+                </div>
+                <div class="result_extraversion" name="result_extraversion">
+                    Extraversion:{{resu.extraversion}}
+                </div>
+                <div class="result_agreeableness" name="result_agreeableness">
+                    Agreableness:{{resu.agreeableness}}
+                </div>
+                <div class="result_neuroticism" name="result_neuroticism">
+                    Neuroticism:{{resu.neuroticism}}
+                </div>
+                <div class="result_prediction" name="result_prediction">
+                    Predicted Personality:
+                </div>
+                <div class="result_thanks" name="result_thanks">
+                    Thank you . Please do not forget your email and ID.
+                </div>
+            
+            {% else %}
+             <h4>No records</h4>
+            {% endif %}
+        </div>
+    
+    </div>
+    <script src='{% static "js/alertify.min.js" %}'></script>
+</body>
+
+</html>
