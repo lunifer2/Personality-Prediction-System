@@ -9,48 +9,12 @@
     color:white;
     /* display:inline-block; */
 }
-#tooltip{
-    position: absolute;
-    height: 36px;
-    left: 5%;
-    top: 350px;
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 36px;
-    display: flex;
-    cursor: pointer;
-
-}
-#tooltip:hover #oppentext{ 
-    top: -130%;
-    visibility: visible;
-    opacity:1;
-}
-#oppentext{
-    color: #000000;
-    position: relative;
-    left: -5%;
-    top: 0;
-    transform: translateX(-50%);
-    background-color: #FA931B;
-    padding: 10px 15px;
-    border-radius:7px ;
-    visibility: hidden;
-    opacity: 1;
-    transition: opacity 0.5s ease;
+.info{
+color: #000000;
 }
 .err{
     margin-top: 10%;
     padding-left: 5%;
-}
-#oppentext::before{
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 100%;
-    transform: translateX(-50%);
-    border: 15px solid;
-    border-color: #000 #0000 #0000 #0000;
 }
 .ajs-message.ajs-custom { 
     color: #31708f;  
@@ -530,15 +494,14 @@ border-radius: 20px;
 }
 
 .oppeness {
-    /* position: absolute; */
+    position: absolute;
     height: 36px;
     left: 5%;
     top: 350px;
     font-weight: 500;
     font-size: 24px;
     line-height: 36px;
-    display: flex;
-    cursor: pointer;
+    
     /* identical to box height */
 
 

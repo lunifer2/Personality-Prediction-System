@@ -1,3 +1,4 @@
+from pickle import NONE
 from django.http import HttpResponseRedirect
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
@@ -34,14 +35,25 @@ def user_login(request):
             uname=lg.cleaned_data['username']
             upassword=lg.cleaned_data['password']
             user= authenticate(username=uname,password=upassword)
-            if user is not None:
-                # id=str(request.user.id)
+            # if user is not None:
+            #     uid=str(request.user.id)
+            #     res= UserProfile.objects.get(user_id=uid)  
+            #     if res is not NONE:
+                     
+            #         #  user=request.user
+            if request.user.is_anonymous:
+                users= request.user.id
+                if users is not None:
+                     return redirect('result_id',id=users)
+                
                 login(request, user)
+
                 return render(request,'profile.html')
         else:
             lg= LoginForm()
         return render(request, 'login.html',{'form':lg})
     else:
+        
          return redirect('/profile/')   
 
 def profile(request):
