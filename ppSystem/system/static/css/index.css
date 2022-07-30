@@ -9,6 +9,23 @@
     color:white;
     /* display:inline-block; */
 }
+td{
+    color: #000000;
+    border: #000000;
+    padding: 10px;
+}
+.tgrades{
+    position: absolute;
+    border: #000000 solid 1px;
+    border-radius: 20px;
+    left: 75%;
+    padding: 15px;
+    box-shadow: 4px 5px 10px rgba(24, 24, 24, 0.31);
+}
+.info_trait{
+    color: #000000;
+    display: flex;
+}
 .info{
 color: #000000;
 }

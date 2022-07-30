@@ -24,6 +24,7 @@
             <a href="{% url 'logout' %}" class="logout">Logout</a>
 
         </div>
+        
         <div class="candidate_form" name="candidate_form">
             <form action="" method="POST" class="form_candidate" name="form_candidate" enctype="multipart/form-data">
                 {% csrf_token %}   
@@ -46,19 +47,19 @@
                     <p class="female">Female</p>
                     <p class="others">Others</p>
                     <label for="cv" class="cv">Please upload your CV</label>
-                    <label for="candidate" class="oppeness" name="oppeness">Do You Enjoy new experience or thing? <a href="info.html" class="info">(Oppenness):</a></label>
+                    <label for="candidate" class="oppeness" name="oppeness">Do You Enjoy new experience or thing? <a href="/info" class="info">(Oppenness):</a></label>
                     
                     <label for="candidate" class="neuroticism" name="neuroticism">How often you feel
-                        negativity?<a href="info.html" class="info">(Neuroticism):</a></label>
+                        negativity?<a href="/info" class="info">(Neuroticism):</a></label>
                     
                     <label for="candidate" class="conscientiousness" name="conscientiousness">Are You Willing to do one’s
-                        work well and thoroughly?<a href="info.html" class="info">(Conscientiousness):</a></label>
+                        work well and thoroughly?<a href="/info" class="info">(Conscientiousness):</a></label>
                     
                     <label for="candidate" class="agreeableness" name="agreeableness">How much would you like to work with
-                        your team?<a href="info.html" class="info">(Agreableness):</a></label>
+                        your team?<a href="/info" class="info">(Agreableness):</a></label>
                     
                     <label for="candidate" class="extraversion" name="extraversion">How outgoing and social interaction do
-                        you like?<a href="info.html" class="info">(Extraversion):</a></label>
+                        you like?<a href="/info" class="info">(Extraversion):</a></label>
                                 
 
                 <input type="submit" class="cand_submit" name="Submit">
@@ -68,6 +69,28 @@
              <small {% if message.tags %} class="{{message.tags}}" {% endif %}>{{message}}</small>
              {% endfor %}
            {% endif %}
+        </div>
+        <div class="grades">
+            <table class="tgrades">
+                <tr>
+                    <td colspan="5">Strongly disagree</td>
+                    <td colspan="5"> Strongly agree</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                </tr>
+            </table>
+                       
+            
         </div>
     </div>
     <script src='{% static "js/alertify.min.js" %}'></script>

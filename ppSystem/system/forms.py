@@ -61,8 +61,8 @@ class ProfileForm(forms.ModelForm):
         'phone':forms.NumberInput(attrs={'class':'cand_phone','placeholder':'Your Phone number'}),
         'gender':forms.RadioSelect(),
         'upload_cv':forms.FileInput(attrs={'class':'upload_cv'}),
-        'oppeness':forms.NumberInput(attrs={'class':'cand_oppeness','placeholder':'0-10'}),
-        'conscientiousness':forms.NumberInput(attrs={'class':'cand_conscientiousness','placeholder':'0-10'}),
-        'extraversion':forms.NumberInput(attrs={'class':'cand_extraversion','placeholder':'0-10'}),
-        'agreeableness':forms.NumberInput(attrs={'class':'cand_agreeableness','placeholder':'0-10'}),
-        'neuroticism':forms.NumberInput(attrs={'class':'cand_neuroticism','placeholder':'0-10'}),}
+        'oppeness':forms.NumberInput(attrs={'class':'cand_oppeness','placeholder':'1-10 '}),
+        'conscientiousness':forms.NumberInput(attrs={'class':'cand_conscientiousness','placeholder':'1-10'}),
+        'extraversion':forms.NumberInput(attrs={'class':'cand_extraversion','placeholder':'1-10'}),
+        'agreeableness':forms.NumberInput(attrs={'class':'cand_agreeableness','placeholder':'1-10'}),
+        'neuroticism':forms.NumberInput(attrs={'class':'cand_neuroticism','placeholder':'1-10'}),}

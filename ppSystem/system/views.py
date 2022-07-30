@@ -15,6 +15,14 @@ from functools import partial
 from pyresparser import ResumeParser
 from sklearn import datasets, linear_model 
 # Create your views here.
+def info(request):
+    if request.user.is_authenticated:
+        return render(request,'info.html',{'name':request.user})
+    else:
+        return redirect('/login/')
+   
+
+    
 def register(request):
     if request.method== "POST":
      rg= RegisterForm(request.POST)

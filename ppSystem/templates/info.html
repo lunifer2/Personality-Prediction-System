@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- include the style -->
+<link rel="stylesheet" href= '{% static "/css/alertify.min.css" %}' />
+<!-- include a theme -->
+<link rel="stylesheet" href='{% static "/css/themes/default.min.css" %}' />
+    <link rel="stylesheet" href='{% static "css/index.css" %}'>
+    <title>Personality traits</title>
+</head>
+
+<body>
+    <div class="candidate_profile">
+        <div class="header">
+            <img src='{% static "img/logo.jpg" %}' alt="logo" class="header_logo"  >
+            <p class="welcome" name="welcome">Welcome:</p>
+            <p class="candidate_id" name="candidate_id">{{name}}</p>
+            <a href="{% url 'logout' %}" class="logout">Logout</a>
+
+        </div>
+    
+        <div class="info_trait">
+            
+                           <h1>About the personality traits</h1>     
+            <div>
+                There are various tests that help to determine
+                personality types such as the Big Five, Rorschach test,
+                and MBTI test. In this paper, prediction of personalityis 
+                done by considering the Big Five Test as it is said to be 
+                widely used, reliable and also it has direct relation
+                between performance mainly focusing on five cognitive
+                domains.
+            </div>
+                <div>
+                    <h1>Big Five Test</h1>
+                    Big Five Personality test also known as OCEAN Model
+                    analyses personality types of individuals based on five
+                    dimensions - Openness(O), Conscientiousness (C),
+                    Extraversion (E), Agreeableness (A), Neuroticism(N).
+                    With each of the dimensions signifying a different
+                    personality type. It uses keywords to identify traits and
+                    analyze in which personality a person fit.
+                    • Openness: As the word suggests, This quality
+                    features characteristics such as openness and
+                    imagination and curiosity.
+                    • Conscientiousness: Conscientiousness talks about a 
+                    high amount of thoughtfulness, a goal- oriented
+                    attitude and good decision-makers.
+                    • Extraversion: Extraversion also means
+                    extroversion is identified by excitement,
+                    talkativeness and assertiveness.
+                    • Agreeableness: Agreeableness refers to features
+                    such as trust, affection and social behaviour of an
+                    individual.
+                    • Neuroticism: Neuroticism includes attributes like
+                    sadness, moodiness and sudden burst of emotions.
+                    As these five dimensions cover almost all avenuesneeded 
+                    to know someone it is the right method that forms the 
+                    basis of a person’s overall personality.
+                </div>
+
+                
+
+            
+        </div>
+    </div>
+    <script src='{% static "js/alertify.min.js" %}'></script>
+</body>
+
+</html>
