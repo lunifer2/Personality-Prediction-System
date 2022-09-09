@@ -119,35 +119,21 @@ def profile(request):
                          return str_list
                         else:   return str(data)
 
-                    def prediction_result (cv_path, personality_values):
-                     applicant_data={"CV Location":cv_path}
+                    def prediction_result (personality_values):
+                     
                     
                      uage = personality_values[1] 
                      personality = train_model.test(personality_values)
-                     data = ResumeParser(cv_path).get_extracted_data()
+                     data = ResumeParser(ucv).get_extracted_data()
 
                      for key in data.keys():
                         if data[key] is not None:
                             print('{} : {}'.format(key,data[key]))
                     
                     def perdict_person():
-                     loc=
-                     val=train_model.prediction_result(loc,(ugender,uage,uoppeness,uneuroticism,uconscientiousness,uagreeableness,uextraversion))
+                     val=train_model.prediction_result(ugender,uage,uoppeness,uneuroticism,uconscientiousness,uagreeableness,uextraversion)
 
-                    def OpenFile(b4):
-                        global loc;
-                        name = (initialdir="C:/Users/Batman/Documents/Programming/tkinter/",
-                                                filetypes =(("Document","*.docx*"),("PDF","*.pdf*"),('All files', '*')),
-                                            title = "Choose a file."
-                                            )
-                        try:
-                            filename=os.path.basename(name)
-                            loc=name
-                        except:
-                            filename=name
-                            loc=name
-                        b4.config(text=filename)
-                        return
+                   
                 return redirect('result_id',id=uid)
             else:
                 pr=UserProfile()
