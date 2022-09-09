@@ -56,13 +56,13 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model= UserProfile
         fields= ['age','phone','gender','upload_cv','oppeness','conscientiousness','extraversion','agreeableness','neuroticism']
-        widgets={
-        'age':forms.NumberInput(attrs={'class':'cand_age','placeholder':'Enter your age'}),
-        'phone':forms.NumberInput(attrs={'class':'cand_phone','placeholder':'Your Phone number'}),
-        'gender':forms.RadioSelect(),
-        'upload_cv':forms.FileInput(attrs={'class':'upload_cv'}),
-        'oppeness':forms.NumberInput(attrs={'class':'cand_oppeness','placeholder':'1-10 '}),
-        'conscientiousness':forms.NumberInput(attrs={'class':'cand_conscientiousness','placeholder':'1-10'}),
-        'extraversion':forms.NumberInput(attrs={'class':'cand_extraversion','placeholder':'1-10'}),
-        'agreeableness':forms.NumberInput(attrs={'class':'cand_agreeableness','placeholder':'1-10'}),
-        'neuroticism':forms.NumberInput(attrs={'class':'cand_neuroticism','placeholder':'1-10'}),}
+        # widgets={
+        # 'age':forms.NumberInput(attrs={'name':'candidate_age','placeholder':'Enter your'}),
+        # 'phone':forms.NumberInput(attrs={'class':'cand_phone','placeholder':'Your Phone number'}),
+        # 'gender':forms.RadioSelect(),
+        # 'upload_cv':forms.FileInput(attrs={'class':'upload_cv'}),
+        # 'oppeness':forms.NumberInput(attrs={'class':'cand_oppeness','placeholder':'1-10 '}),
+        # 'conscientiousness':forms.NumberInput(attrs={'class':'cand_conscientiousness','placeholder':'1-10'}),
+        # 'extraversion':forms.NumberInput(attrs={'class':'cand_extraversion','placeholder':'1-10'}),
+        # 'agreeableness':forms.NumberInput(attrs={'class':'cand_agreeableness','placeholder':'1-10'}),
+        # 'neuroticism':forms.NumberInput(attrs={'class':'cand_neuroticism','placeholder':'1-10'}),}

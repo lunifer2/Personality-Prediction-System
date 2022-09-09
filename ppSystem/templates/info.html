@@ -1,29 +1,7 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- include the style -->
-<link rel="stylesheet" href= '{% static "/css/alertify.min.css" %}' />
-<!-- include a theme -->
-<link rel="stylesheet" href='{% static "/css/themes/default.min.css" %}' />
-    <link rel="stylesheet" href='{% static "css/index.css" %}'>
-    <title>Personality traits</title>
-</head>
-
-<body>
-    <div class="candidate_profile">
-        <div class="header">
-            <img src='{% static "img/logo.jpg" %}' alt="logo" class="header_logo"  >
-            <p class="welcome" name="welcome">Welcome:</p>
-            <p class="candidate_id" name="candidate_id">{{name}}</p>
-            <a href="{% url 'logout' %}" class="logout">Logout</a>
-
-        </div>
-    
+{% extends 'header1.html'%}
+{% load  static%}
+{%block content%}
+    <div class="container-fluid">
         <div class="info_trait">
             
                            <h1>About the personality traits</h1>     
@@ -70,6 +48,5 @@
         </div>
     </div>
     <script src='{% static "js/alertify.min.js" %}'></script>
-</body>
 
-</html>
+{%endblock%}

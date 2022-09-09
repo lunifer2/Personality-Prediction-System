@@ -2,6 +2,7 @@ from pickle import NONE
 from django.http import HttpResponseRedirect
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
+from requests import request
 from .models import UserProfile
 from .forms import ProfileForm, RegisterForm,LoginForm,ProfileForm
 from django.contrib.auth import login,logout,authenticate
@@ -33,33 +34,25 @@ def register(request):
         return HttpResponseRedirect('/login/')
     else:
      rg = RegisterForm()
-    return render(request, 'register.html',{'form':rg})
+    return render(request, 'register1.html',{'form':rg})
 
 def user_login(request):
+    print('asd')
     if not request.user.is_authenticated:
+        
         if request.method == "POST":
-         lg=LoginForm(request=request,data=request.POST)
-         if lg.is_valid():
-            uname=lg.cleaned_data['username']
-            upassword=lg.cleaned_data['password']
-            user= authenticate(username=uname,password=upassword)
-            # if user is not None:
-            #     uid=str(request.user.id)
-            #     res= UserProfile.objects.get(user_id=uid)  
-            #     if res is not NONE:
-                     
-            #         #  user=request.user
-            if request.user.is_anonymous:
-                users= request.user.id
-                if users is not None:
-                     return redirect('result_id',id=users)
-                
+            print('sdasd')
+            lg=LoginForm(request=request,data=request.POST)
+            if lg.is_valid():
+                uname=lg.cleaned_data['username']
+                upassword=lg.cleaned_data['password']
+                user= authenticate(username=uname,password=upassword)
+            
                 login(request, user)
-
-                return render(request,'profile.html')
+                return render(request,'questions.html')
         else:
             lg= LoginForm()
-        return render(request, 'login.html',{'form':lg})
+        return render(request, 'login1.html',{'form':lg})
     else:
         
          return redirect('/profile/')   
@@ -86,10 +79,10 @@ def profile(request):
                 return redirect('result_id',id=uid)
             else:
                 pr=UserProfile()
-                return render(request,'profile.html',{'form':pr,'name':request.user})
+                return render(request,'questions.html',{'form':pr,'name':request.user})
         else:
          pr=ProfileForm()
-         return render(request,'profile.html',{'form':pr,'name':request.user})
+         return render(request,'questions.html',{'form':pr,'name':request.user})
  else:
   return redirect('/login/')
 
@@ -98,8 +91,9 @@ def profile(request):
 def result_id(request,id):
     if request.user.is_authenticated:
         
-      res= UserProfile.objects.get(user_id=id)   
-      return render(request,'results.html',{'resu':res,'name':request.user,'fname':request.user.first_name,'lname':request.user.last_name}) 
+        
+        res= UserProfile.objects.get(user_id=id)   
+        return render(request,'results.html',{'resu':res,'name':request.user,'fname':request.user.first_name,'lname':request.user.last_name}) 
     else:
      return redirect('/profile/')
    
@@ -108,48 +102,74 @@ def user_logout(request):
     logout(request)
     return redirect('/login/')
 
-class train_model:
+# class training:
+#     def train(self):
+#         data =pd.read_csv('training_dataset.csv')
+#         array = data.values
+#         use=UserProfile.objects.filter(user_id=id)
+#         dat=UserProfile.objects.get()
+#         print(dat)
+
+        # for i in range(len(array)):
+        #     if array[i][0]=="Male":
+        #         array[i][0]=1
+        #     else:
+        #         array[i][0]=0
+
+
+        # df=pd.DataFrame(array)
+
+        # maindf =df[[0,1,2,3,4,5,6]]
+        # mainarray=maindf.values
+
+        # temp=df[7]
+        # train_y =temp.values
+        
+        # self.mul_lr = linear_model.LogisticRegression(multi_class='multinomial', solver='newton-cg',max_iter =1000)
+        # self.mul_lr.fit(mainarray, train_y)
+
+# class train_model:
     
-    def train(self):
-        data =pd.read_csv('training_dataset.csv')
-        array = data.values
+#     def train(self):
+#         data =pd.read_csv('training_dataset.csv')
+#         array = data.values
 
-        for i in range(len(array)):
-            if array[i][0]=="Male":
-                array[i][0]=1
-            else:
-                array[i][0]=0
+#         for i in range(len(array)):
+#             if array[i][0]=="Male":
+#                 array[i][0]=1
+#             else:
+#                 array[i][0]=0
 
 
-        df=pd.DataFrame(array)
+#         df=pd.DataFrame(array)
 
-        maindf =df[[0,1,2,3,4,5,6]]
-        mainarray=maindf.values
+#         maindf =df[[0,1,2,3,4,5,6]]
+#         mainarray=maindf.values
 
-        temp=df[7]
-        train_y =temp.values
+#         temp=df[7]
+#         train_y =temp.values
         
-        self.mul_lr = linear_model.LogisticRegression(multi_class='multinomial', solver='newton-cg',max_iter =1000)
-        self.mul_lr.fit(mainarray, train_y)
+#         self.mul_lr = linear_model.LogisticRegression(multi_class='multinomial', solver='newton-cg',max_iter =1000)
+#         self.mul_lr.fit(mainarray, train_y)
         
-    def test(self, test_data):
-        try:
-            test_predict=list()
-            for i in test_data:
-                test_predict.append(int(i))
-            y_pred = self.mul_lr.predict([test_predict])
-            return y_pred
-        except:
-            print("All Factors For Finding Personality Not Entered!")
-def check_type(data):
-    if type(data)==str or type(data)==str:
-        return str(data).title()
-    if type(data)==list or type(data)==tuple:
-        str_list=""
-        for i,item in enumerate(data):
-            str_list+=item+", "
-        return str_list
-    else:   return str(data)
+#     def test(self, test_data):
+#         try:
+#             test_predict=list()
+#             for i in test_data:
+#                 test_predict.append(int(i))
+#             y_pred = self.mul_lr.predict([test_predict])
+#             return y_pred
+#         except:
+#             print("All Factors For Finding Personality Not Entered!")
+# def check_type(data):
+#     if type(data)==str or type(data)==str:
+#         return str(data).title()
+#     if type(data)==list or type(data)==tuple:
+#         str_list=""
+#         for i,item in enumerate(data):
+#             str_list+=item+", "
+#         return str_list
+#     else:   return str(data)
 
 # def prediction_result(top, aplcnt_name, cv_path, personality_values):
 #     "after applying a job"
@@ -261,15 +281,15 @@ def check_type(data):
 
 
 # if __name__ == "__main__":
-#     model = train_model()
-#     model.train()
+    model = train_model()
+    model.train()
 
-#     root = Tk()
-#     root.geometry('1440x1024')
-#     root.configure(background='orange')
-#     root.title("Personality Prediction System")
-#     titleFont = font.Font(family='Helvetica', size=25, weight='bold')
-#     homeBtnFont = font.Font(size=12, weight='bold')
-#     lab=Label(root, text="Personality Prediction System", bg='white', font=titleFont, pady=30).pack()
-#     b2=Button(root, padx=4, pady=4, width=30, text="Predict Personality", bg='black', foreground='white', bd=1, font=homeBtnFont, command=perdict_person).place(relx=0.5, rely=0.5, anchor=CENTER)
-#     root.mainloop()
+    root = Tk()
+    root.geometry('1440x1024')
+    root.configure(background='orange')
+    root.title("Personality Prediction System")
+    titleFont = font.Font(family='Helvetica', size=25, weight='bold')
+    homeBtnFont = font.Font(size=12, weight='bold')
+    lab=Label(root, text="Personality Prediction System", bg='white', font=titleFont, pady=30).pack()
+    b2=Button(root, padx=4, pady=4, width=30, text="Predict Personality", bg='black', foreground='white', bd=1, font=homeBtnFont, command=perdict_person).place(relx=0.5, rely=0.5, anchor=CENTER)
+    root.mainloop()

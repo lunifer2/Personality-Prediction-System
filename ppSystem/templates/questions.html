@@ -1,0 +1,130 @@
+{% extends 'header1.html'%}
+{% load  static%}
+{%block content%}
+<style>
+    .formQuestion div{
+        margin-bottom: 10px;
+    }
+</style>
+<div class="container-fluid">
+        <form action="" method="POST" class="form_candidate" name="form_candidate" enctype="multipart/form-data">
+            {% csrf_token %}   
+            <div class="m-2 p-2 shadow-lg">
+                {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %} 
+                   <p class="err">{{error}}</p>
+                {% endfor %}
+           {% endif %}
+           {% for pr in form %}
+            {{pr.label_tags}} {{pr}} {{pr.errors|striptags}} <br>
+           {% endfor %}
+                <div class="row">
+                    <div class="col-8 formQuestion">
+                        <div class="d-flex flex-column justify-content-center"><h3>Please fill the following form</h3></div>
+                        <div class="d-flex flex-column">1.&nbsp;What is your Age?<input type="number" name="candidate_age" placeholder=" Age"  min="1" class="form-control" 
+                            oninput="this.value = 
+                               !!this.value && Math.abs(this.value) > 0 ? Math.abs(this.value) : null " required></div>
+                        <div class="d-flex flex-column">2.&nbsp;What is your phone number?<input type="number" name="candidate_phone" placeholder="Phone number"  pattern="[0-9]+" maxlength="10" class="form-control"></div>
+                        <div class="d-flex flex-row">3.&nbsp;Gender:&nbsp; &nbsp;
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexradioDefault" id="">
+                                <label class="form-check-label" for="">
+                                    Male&nbsp;&nbsp;
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexradioDefault" id="" checked>
+                                <label class="form-check-label" for="">
+                                    Female&nbsp;&nbsp;
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexradioDefault" id="">
+                                <label class="form-check-label" for="">
+                                    Other
+                                </label>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column">
+                            <label for="cv" class="cv">4. Please upload your CV</label>
+                            <input type="file" name="" placeholder="File " class="form-control">
+                        </div>
+                        <div class="d-flex flex-column">
+                            <label for="candidate" class="" name="oppeness">5. Do You Enjoy new experience or thing? 
+                                <a href="/info" class="info">(Oppenness):</a>
+                                <input type="number" name="" placeholder="Oppenness"  min="0" max="10" class="form-control"
+                                oninput="this.value = 
+                                !!this.value && Math.abs(this.value) > 0 ? Math.abs(this.value) : null "
+                                onKeyPress="if((this.value)>10) return false;" required>
+                            </label>
+                        </div>
+                        <div class="d-flex flex-column">
+                            <label for="candidate" class="neuroticism" name="neuroticism">6. How often you feel negativity?
+                                <a href="/info" class="info">(Neuroticism):</a>
+                                <input type="number" name="" placeholder="Neuroticism"  min="0" max="10" class="form-control"
+                                oninput="this.value = 
+                                !!this.value && Math.abs(this.value) > 0 ? Math.abs(this.value) : null "
+                                onKeyPress="if((this.value)>10) return false;" required>
+                            </label>
+                        </div>
+                        <div class="d-flex flex-column">
+                            <label for="candidate" class="conscientiousness" name="conscientiousness">7. Are You Willing to do one's work well and thoroughly?
+                                <a href="/info" class="info">(Conscientiousness):</a>
+                                <input type="number" name="" placeholder="Conscientiousness"  min="0" max="10" class="form-control"
+                                oninput="this.value = 
+                                !!this.value && Math.abs(this.value) > 0 ? Math.abs(this.value) : null "
+                                onKeyPress="if((this.value)>10) return false;" required>
+                            </label>
+                        </div>
+                        <div class="d-flex flex-column">
+                            <label for="candidate" class="agreeableness" name="agreeableness">8. How much would you like to work with your team?
+                                <a href="/info" class="info">(Agreableness):</a>
+                                <input type="number" name="" placeholder="Agreableness"  min="0" max="10" class="form-control"
+                                oninput="this.value = 
+                                !!this.value && Math.abs(this.value) > 0 ? Math.abs(this.value) : null "
+                                onKeyPress="if((this.value)>10) return false;" required>
+                            </label>
+                        </div>
+                        <div class="d-flex flex-column">
+                            <label for="candidate" class="extraversion" name="extraversion">9. How outgoing and social interaction do
+                                you like?<a href="/info" class="info">(Extraversion):</a>
+                                <input type="number" name="" placeholder=" Extraversion"  min="0" max="10" class="form-control"
+                                oninput="this.value = 
+                                !!this.value && Math.abs(this.value) > 0 ? Math.abs(this.value) : null "
+                                onKeyPress="if((this.value)>10) return false;" required>
+                            </label>
+
+                        </div>
+                        <div class="d-flex flex-column justify-content-center mt-3 px-5"><button class="btn btn-primary">Submit</button></div>          
+                    </div>
+                    <div class="col-4">
+                        <div class="grades">
+                            <table class="table table-dark">
+                                <thead>
+                                <tr>
+                                    <th scope="col" colspan="5" class="text-start">Strongly Agree</th>
+                                    <th scope="col" colspan="5" class="text-end">Strongly disagree</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>7</td>
+                                    <td>8</td>
+                                    <td>9</td>
+                                    <td>10</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+{%endblock%}
