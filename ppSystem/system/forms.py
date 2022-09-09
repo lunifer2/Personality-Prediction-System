@@ -1,4 +1,7 @@
 
+from calendar import c
+from re import A
+from tkinter import E
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
@@ -23,12 +26,13 @@ class RegisterForm(UserCreationForm):
     class Meta:
         model= User
         fields= ['first_name','last_name','email','username','password1','password2']
-        widgets= {
-            'first_name':forms.TextInput(attrs={'class':'first_name','placeholder':'Your first name','required':True}),
-        'last_name':forms.TextInput(attrs={'class':'last_name','placeholder':'Your last name','required':True}),
-        'email':forms.EmailInput(attrs={'class':'register_email','placeholder':'Enter emailaddress','required':True}),
-        
-        }
+        first_name = forms.CharField()
+        last_name = forms.CharField()
+        username = forms.CharField()
+        email = forms.EmailField()
+        password1 = forms.CharField()
+        password2 = forms.CharField() 
+
 
 class LoginForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):
@@ -66,3 +70,15 @@ class ProfileForm(forms.ModelForm):
         # 'extraversion':forms.NumberInput(attrs={'class':'cand_extraversion','placeholder':'1-10'}),
         # 'agreeableness':forms.NumberInput(attrs={'class':'cand_agreeableness','placeholder':'1-10'}),
         # 'neuroticism':forms.NumberInput(attrs={'class':'cand_neuroticism','placeholder':'1-10'}),}
+        candidate_age=forms.CharField()
+        candidate_phone=forms.CharField()
+        flexradioDefault=forms.RadioSelect()
+        cv=forms.FileField()
+        oppeness=forms.CharField()
+        conscientiousness=forms.CharField()
+        extraversion=forms.CharField()
+        agreeableness=forms.CharField()
+        neuroticism=forms.CharField()
+        
+        
+       

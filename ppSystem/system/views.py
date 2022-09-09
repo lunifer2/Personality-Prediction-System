@@ -34,7 +34,7 @@ def register(request):
         return HttpResponseRedirect('/login/')
     else:
      rg = RegisterForm()
-    return render(request, 'register1.html',{'form':rg})
+    return render(request, 'register1.html')
 
 def user_login(request):
     print('asd')
@@ -52,7 +52,7 @@ def user_login(request):
                 return render(request,'questions.html')
         else:
             lg= LoginForm()
-        return render(request, 'login1.html',{'form':lg})
+        return render(request, 'login1.html')
     else:
         
          return redirect('/profile/')   
@@ -62,10 +62,10 @@ def profile(request):
         if request.method== 'POST':
             pr=ProfileForm(request.POST,request.FILES,instance=request.user)
             if pr.is_valid():
-                uage=pr.cleaned_data.get("age")
-                uphone=pr.cleaned_data.get("phone")
-                ugender=pr.cleaned_data.get("gender")
-                ucv=pr.cleaned_data.get("upload_cv")
+                uage=pr.cleaned_data.get("candidate_age")
+                uphone=pr.cleaned_data.get("candidate_phone")
+                ugender=pr.cleaned_data.get("flexradioDefault")
+                ucv=pr.cleaned_data.get("cv")
                 uoppeness=pr.cleaned_data.get("oppeness")
                 uneuroticism=pr.cleaned_data.get("neuroticism")
                 uconscientiousness=pr.cleaned_data.get("conscientiousness")
@@ -79,10 +79,10 @@ def profile(request):
                 return redirect('result_id',id=uid)
             else:
                 pr=UserProfile()
-                return render(request,'questions.html',{'form':pr,'name':request.user})
+                return render(request,'questions.html',{'name':request.user})
         else:
          pr=ProfileForm()
-         return render(request,'questions.html',{'form':pr,'name':request.user})
+         return render(request,'questions.html',{'name':request.user})
  else:
   return redirect('/login/')
 
