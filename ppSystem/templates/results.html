@@ -32,13 +32,14 @@
             </div>
             {% if resu %} 
                 <div class="result_name" name="result_name">
-                   Name:{{fname}} {{lname}}
+
+                   Name: {{user.user}}{{user.user.first_name}} {{user.user.last_name}}
                 </div>
                 <div class="result_age" name="result_age">
-                    Age:{{resu.age}}
+                    Age:{{user.age}}
                 </div>
                 <div class="result_email" name="result_email">
-                    Email:{{email}}
+                    Email:{{user.user.email}}
                 </div>
                 <div class="result_skill" name="result_skill">
                     Skill:

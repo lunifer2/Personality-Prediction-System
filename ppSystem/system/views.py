@@ -41,10 +41,9 @@ class train_model:
 
     def test(self, test_data):
         try:
-            test_predict = list()
-            for i in test_data:
-                test_predict.append(int(i))
-            y_pred = self.mul_lr.predict([test_predict])
+            test_predict = list(test_data)
+            print(test_predict)
+            y_pred = self.mul_lr.predict(test_predict)
             return y_pred
         except:
             print("All Factors For Finding Personality Not Entered!")
@@ -62,14 +61,13 @@ class train_model:
 
     def prediction_result(cv_path, personality_values):
         applicant_data = {"CV Location": cv_path}
-
         uage = personality_values[1]
-        personality = train_model.test(personality_values)
-        data = ResumeParser(cv_path).get_extracted_data()
-
-        for key in data.keys():
-            if data[key] is not None:
-                print('{} : {}'.format(key, data[key]))
+        personality = train_model().test(personality_values)
+        # data = ResumeParser(cv_path).get_extracted_data()
+        #
+        # for key in data.keys():
+        #     if data[key] is not None:
+        #         print('{} : {}'.format(key, data[key]))
         return personality
 
     def OpenFile(b4):
@@ -93,7 +91,7 @@ class train_model:
         uconscientiousness = pro.conscientiousness
         uagreeableness = pro.agreeableness
         uextraversion = pro.extraversion
-        val = train_model.prediction_result(loc, (
+        val = train_model.prediction_result(None, (
             ugender, uage, uoppeness, uneuroticism, uconscientiousness, uagreeableness, uextraversion))
         return val
 
@@ -141,40 +139,42 @@ def user_login(request):
 
 def profile(request):
     if request.user.is_authenticated:
-        if request.method == 'POST':
-            print(request.POST["openness"])
-            uage = request.POST["candidate_age"]
-            uphone = request.POST["candidate_phone"]
-            ugender = request.POST["gender"]
-            ucv = request.POST["cv"]
-            uoppeness = request.POST["openness"]
-            uneuroticism = request.POST["neuroticism"]
-            uconscientiousness = request.POST["conscientiousness"]
-            uagreeableness = request.POST["agreeableness"]
-            uextraversion = request.POST["extraversion"]
-            pro = UserProfile(age=uage, phone=uphone, gender=ugender, upload_cv=ucv, oppeness=uoppeness,
-                              neuroticism=uneuroticism, conscientiousness=uconscientiousness,
-                              agreeableness=uagreeableness, extraversion=uextraversion, user=request.user)
-
-            pro.save()
-            result = train_model.perdict_person(pro)
-            print(result, 'lol')
-            # return render(request,'results.html',{'pk':uid,'name':request.user})
-
+        try:
+            u = UserProfile.objects.get(user=request.user)
             return redirect('result_id', id=request.user.id)
-        else:
-            pr = ProfileForm()
-            return render(request, 'questions.html', {'name': request.user})
+        except:
+            if request.method == 'POST':
+                uage = request.POST["candidate_age"]
+                uphone = request.POST["candidate_phone"]
+                ugender = request.POST["gender"]
+                ucv = request.POST["cv"]
+                uoppeness = request.POST["openness"]
+                uneuroticism = request.POST["neuroticism"]
+                uconscientiousness = request.POST["conscientiousness"]
+                uagreeableness = request.POST["agreeableness"]
+                uextraversion = request.POST["extraversion"]
+                pro = UserProfile(age=uage, phone=uphone, gender=ugender, upload_cv=ucv, oppeness=uoppeness,
+                                  neuroticism=uneuroticism, conscientiousness=uconscientiousness,
+                                  agreeableness=uagreeableness, extraversion=uextraversion, user=request.user)
+
+                pro.save()
+                result = train_model.perdict_person(pro)
+                print(result, 'lol')
+                # return render(request,'results.html',{'pk':uid,'name':request.user})
+
+                return redirect('result_id', id=request.user.id)
+            else:
+                pr = ProfileForm()
+                return render(request, 'questions.html', {'name': request.user})
     else:
         return redirect('/login/')
 
 
 def result_id(request, id):
     if request.user.is_authenticated:
-
         res = UserProfile.objects.get(user_id=id)
         return render(request, 'results.html', {'resu': res, 'name': request.user, 'fname': request.user.first_name,
-                                                'lname': request.user.last_name})
+                                                'lname': request.user.last_name, 'user':res})
     else:
         return redirect('/profile/')
 
