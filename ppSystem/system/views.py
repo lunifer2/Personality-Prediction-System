@@ -84,11 +84,11 @@ class train_model:
         b4.config(text=filename)
         return
 
-    def perdict_person(self, pro):
+    def perdict_person(pro):
         global loc
         ugender = pro.gender
         uage = pro.age
-        uoppeness = pro.uoppeness
+        uoppeness = pro.oppeness
         uneuroticism = pro.neuroticism
         uconscientiousness = pro.conscientiousness
         uagreeableness = pro.agreeableness
@@ -142,30 +142,26 @@ def user_login(request):
 def profile(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
-            pr = ProfileForm(request.POST, request.FILES, instance=request.user)
-            if pr.is_valid():
-                uage = pr.cleaned_data.get("candidate_age")
-                uphone = pr.cleaned_data.get("candidate_phone")
-                ugender = pr.cleaned_data.get("flexradioDefault")
-                ucv = pr.cleaned_data.get("cv")
-                uoppeness = pr.cleaned_data.get("oppeness")
-                uneuroticism = pr.cleaned_data.get("neuroticism")
-                uconscientiousness = pr.cleaned_data.get("conscientiousness")
-                uagreeableness = pr.cleaned_data.get("agreeableness")
-                uextraversion = pr.cleaned_data.get("extraversion")
-                uid = str(request.user.id)
-                pro = UserProfile(age=uage, phone=uphone, gender=ugender, upload_cv=ucv, oppeness=uoppeness,
-                                  neuroticism=uneuroticism, conscientiousness=uconscientiousness,
-                                  agreeableness=uagreeableness, extraversion=uextraversion, user_id=uid)
+            print(request.POST["openness"])
+            uage = request.POST["candidate_age"]
+            uphone = request.POST["candidate_phone"]
+            ugender = request.POST["gender"]
+            ucv = request.POST["cv"]
+            uoppeness = request.POST["openness"]
+            uneuroticism = request.POST["neuroticism"]
+            uconscientiousness = request.POST["conscientiousness"]
+            uagreeableness = request.POST["agreeableness"]
+            uextraversion = request.POST["extraversion"]
+            pro = UserProfile(age=uage, phone=uphone, gender=ugender, upload_cv=ucv, oppeness=uoppeness,
+                              neuroticism=uneuroticism, conscientiousness=uconscientiousness,
+                              agreeableness=uagreeableness, extraversion=uextraversion, user=request.user)
 
-                pro.save()
-                result = train_model.perdict_person(pro)
-                # return render(request,'results.html',{'pk':uid,'name':request.user})
+            pro.save()
+            result = train_model.perdict_person(pro)
+            print(result, 'lol')
+            # return render(request,'results.html',{'pk':uid,'name':request.user})
 
-                return redirect('result_id', id=uid)
-            else:
-                pr = UserProfile()
-                return render(request, 'questions.html', {'name': request.user})
+            return redirect('result_id', id=request.user.id)
         else:
             pr = ProfileForm()
             return render(request, 'questions.html', {'name': request.user})
